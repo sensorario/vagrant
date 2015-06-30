@@ -61,5 +61,6 @@ Vagrant.configure(2) do |config|
   # config.ssh.private_key_path = "~/.ssh/id_rsa"
   # config.ssh.forward_agent = true
 
-  config.vm.provision "chef_solo", run_list: ["vagrant_book"]
+  # config.vm.provision "chef_solo", run_list: ["vagrant_book"]
+  config.vm.provision "puppet"
 end
