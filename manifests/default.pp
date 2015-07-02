@@ -1,5 +1,5 @@
 exec { "apt-get update":
-    command => "/urs/bin/apt-get update"
+    command => "apt-get update"
 }
 
 package { "apache2":
