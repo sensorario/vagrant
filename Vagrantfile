@@ -63,4 +63,9 @@ Vagrant.configure(2) do |config|
 
   # config.vm.provision "chef_solo", run_list: ["vagrant_book"]
   config.vm.provision "puppet"
+  config.vm.hostname = "vagrant.example.com"
+
+  # Make sure submodules are installed
+  # config.vm.provision :shell, :inline => "if ! `which git` > /dev/null; then sudo apt-get update --quiet --yes && sudo apt-get install git --quiet --yes; fi; cd /srv; git submodule update --init --recursive"
+
 end
