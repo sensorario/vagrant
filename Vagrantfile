@@ -63,4 +63,5 @@ Vagrant.configure(2) do |config|
 
   # config.vm.provision "chef_solo", run_list: ["vagrant_book"]
   config.vm.provision "puppet"
+  config.vm.hostname = "vagrant.example.com"
 end
