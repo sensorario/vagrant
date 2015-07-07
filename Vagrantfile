@@ -31,7 +31,7 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  # config.vm.synced_folder "shared", "/vagrant"
+  config.vm.synced_folder "shared", "/vagrant"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -63,8 +63,11 @@ Vagrant.configure(2) do |config|
   # config.ssh.private_key_path = "~/.ssh/id_rsa"
   # config.ssh.forward_agent = true
 
-  # config.vm.provision "chef_solo", run_list: ["vagrant_book"]
   config.vm.provision "puppet"
+  config.vm.provision "shell", path: "jenkins.sh"
+  config.vm.provision :shell, :inline => "apt-get install -y vim"
+  config.vm.provision :shell, :inline => "apt-get install -y tmux"
+
   config.vm.hostname = "vagrant.example.com"
 
   # Make sure submodules are installed
