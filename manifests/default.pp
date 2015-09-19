@@ -14,5 +14,11 @@ package { 'tmux':
     ensure => present
 }
 
+file { "/var/www":
+    ensure => link,
+    target => "/vagrant/shared",
+    force => true
+}
+
 include php
 include mysql
