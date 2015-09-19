@@ -15,3 +15,4 @@ package { 'tmux':
 }
 
 include php
+include mysql
